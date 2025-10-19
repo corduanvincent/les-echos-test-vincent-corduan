@@ -33,7 +33,7 @@ J'ai utilisé react-router-dom principalement pour gérer une page de login : [h
 Visuellement c'est une modal mais en réalité c'est bien une page. Cette approche permet de retourner sur la page principale sans avoir à recharger la page.
 
 C'est un enfant de <RootLayout> qui contient une action postUserAction dont le but est de remonter la valeur envoyée par le formulaire au Context Provider, dont j'expliquerai la fonction plus bas.
-Cette approche permet de confier pleinement la gestion du formulaire à react-router-dom via le composant <Form>.
+Cette approche permet de confier pleinement la gestion du formulaire à react-router-dom via le composant ```jsx<Form>```.
 Ici il récupère la valeur renvoyée par submit, la définit dans une fonction asynchrone et l'envoie via l'URL en utilisant redirect()
 
 Si vous ne m'aviez pas demandé de gérer les données côté serveur pour faire du server side rendering, j'aurais probablement géré l'appel via un Loader() que j'aurais rattaché à l'enfant <NewslettersList>.
