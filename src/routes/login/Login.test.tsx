@@ -1,4 +1,4 @@
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import React from 'react';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
@@ -60,16 +60,14 @@ describe('Login Component', () => {
     const select = screen.getByLabelText('Utilisateur');
     userEvent.click(select);
     
-    await waitFor(() => {
-      const options = screen.getAllByText('Utilisateur avec une souscription');
-      expect(options.length).toBeGreaterThan(0);
-      
-      const multipleOptions = screen.getAllByText('Utilisateur avec plusieurs souscriptions');
-      expect(multipleOptions.length).toBeGreaterThan(0);
-      
-      const noSubOptions = screen.getAllByText('Utilisateur sans souscription');
-      expect(noSubOptions.length).toBeGreaterThan(0);
-    });
+    const options = screen.getAllByText('Utilisateur avec une souscription');
+    expect(options.length).toBeGreaterThan(0);
+    
+    const multipleOptions = screen.getAllByText('Utilisateur avec plusieurs souscriptions');
+    expect(multipleOptions.length).toBeGreaterThan(0);
+    
+    const noSubOptions = screen.getAllByText('Utilisateur sans souscription');
+    expect(noSubOptions.length).toBeGreaterThan(0);
   });
 
   test('render  buttons', () => {

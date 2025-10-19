@@ -6,11 +6,11 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import NewslettersList from './NewslettersList';
 import { UserContext } from '../../components/newsletters-container/NewslettersContainer';
 
+import { getButtonLabel } from '../../utils/Utils.tsx';
+
 jest.mock('../../utils/Utils.tsx', () => ({
   getButtonLabel: jest.fn(),
 }));
-
-import { getButtonLabel } from '../../utils/Utils.tsx';
 const mockGetButtonLabel = jest.mocked(getButtonLabel);
 
 interface MockNewsletterCardProps {
@@ -214,9 +214,9 @@ describe('NewslettersList Component', () => {
       isFetching: false,
     });
 
-    const { container } = renderWithProviders(<NewslettersList />);
+    renderWithProviders(<NewslettersList />);
 
-    const sections = container.querySelectorAll('section');
+    const sections = screen.getAllByTestId('newsletter-section');
     expect(sections).toHaveLength(3);
   });
 });

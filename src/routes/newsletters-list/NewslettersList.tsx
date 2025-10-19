@@ -71,9 +71,10 @@ function NewsletterList() {
       <Container maxWidth="lg">
         {/* utilisation de Object.entries afficher chaque groupe avec son titre */}
         {groupedBySite && Object.entries(groupedBySite).map(([site, siteNewsletters]) => (
-        <section key={site}>
+        <section key={site} data-testid="newsletter-section" aria-labelledby={`section-${site}`}>
           <Box mb={2} mt={6}>
             <Typography
+              id={`section-${site}`}
               variant="h2"
               fontSize={{ xs: '1rem', sm: '1.5rem' }}
             >
