@@ -50,7 +50,7 @@ Dans un souci de temps et d'expérience, j'ai choisi volontairement de faire du 
 J'aurais pu suivre un tutoriel pour faire une application full SSR mais je préfère vous montrer ce que je sais faire vraiment au quotidien.
 
 Dans le projet, un serveur Express a été créé : server/server-ssr.js, à l'intérieur j'ai simulé une API REST pour aller chercher les newsletters dans le database/newsletter-data.json.
-Ensuite, il y a une lecture du index.html actuel, un préchargement des données des newsletters, un HTML enrichi avec ces mêmes données et une injection de ce HTML enrichi via window.__REACT_QUERY_STATE__ dans le nouveau HTML rendu.
+Ensuite, il y a une lecture du index.html actuel, un préchargement des données des newsletters, un HTML enrichi avec ces mêmes données et une injection de ce HTML enrichi dans le nouveau HTML rendu.
 Enfin, côté client, les données sont déshydratées au niveau de ```<App>```.
 
 Le serveur a été configuré pour garder les données rendues. Ainsi le SSR fonctionne lors du chargement des nouvelles données, mais lorsque vous rechargez la page par exemple, on repasse en mode CSR. On ne refait pas appel à toute la logique serveur à chaque render.
